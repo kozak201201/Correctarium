@@ -99,7 +99,7 @@ describe('Tasker: deadlineDateCalculate', () => {
                 deadlineDate = new Date(2021, 11, 10, 18, 59)
                 expect(tasker.deadlineDateCalculate(startDate, 509)).toEqual(deadlineDate);
 
-                deadlineDate = new Date(2021, 11, 13, 10, 0)
+                deadlineDate = new Date(2021, 11, 10, 19, 0)
                 expect(tasker.deadlineDateCalculate(startDate, 510)).toEqual(deadlineDate);
 
                 deadlineDate = new Date(2021, 11, 13, 18, 59)
@@ -139,13 +139,13 @@ describe('Tasker: deadlineDateCalculate', () => {
         test('test friday start work time', () => {
             startDate = new Date(2021, 11, 10, 10, 23);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 0)
+            deadlineDate = new Date(2021, 11, 10, 11, 23)
             expect(tasker.deadlineDateCalculate(startDate, 0)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 30)
+            deadlineDate = new Date(2021, 11, 10, 11, 53)
             expect(tasker.deadlineDateCalculate(startDate, 60)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 34)
+            deadlineDate = new Date(2021, 11, 10, 11, 57)
             expect(tasker.deadlineDateCalculate(startDate, 64)).toEqual(deadlineDate);
 
             deadlineDate = new Date(2021, 11, 13, 10, 22)
@@ -190,7 +190,7 @@ describe('Tasker: deadlineDateCalculate', () => {
         );
 
         test('test saturday start later', () => {
-                startDate = new Date(2021, 11, 10, 19, 0);
+                startDate = new Date(2021, 11, 11, 19, 0);
 
                 deadlineDate = new Date(2021, 11, 13, 11, 0)
                 expect(tasker.deadlineDateCalculate(startDate, 0)).toEqual(deadlineDate);
@@ -216,27 +216,27 @@ describe('Tasker: deadlineDateCalculate', () => {
         );
 
         test('test saturday start 10 - 19', () => {
-            startDate = new Date(2021, 11, 10, 11, 23);
+            startDate = new Date(2021, 11, 11, 11, 23);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 0)
+            deadlineDate = new Date(2021, 11, 13, 11, 0)
             expect(tasker.deadlineDateCalculate(startDate, 0)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 30)
+            deadlineDate = new Date(2021, 11, 13, 11, 30)
             expect(tasker.deadlineDateCalculate(startDate, 60)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 10, 11, 34)
+            deadlineDate = new Date(2021, 11, 13, 11, 34)
             expect(tasker.deadlineDateCalculate(startDate, 64)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 13, 11, 22)
+            deadlineDate = new Date(2021, 11, 13, 18, 59)
             expect(tasker.deadlineDateCalculate(startDate, 509)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 13, 11, 23)
+            deadlineDate = new Date(2021, 11, 14, 10, 0)
             expect(tasker.deadlineDateCalculate(startDate, 510)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 14, 11, 22)
+            deadlineDate = new Date(2021, 11, 14, 18, 59)
             expect(tasker.deadlineDateCalculate(startDate, 510 + 539)).toEqual(deadlineDate);
 
-            deadlineDate = new Date(2021, 11, 14, 11, 23)
+            deadlineDate = new Date(2021, 11, 15, 10, 0)
             expect(tasker.deadlineDateCalculate(startDate, 510 + 540)).toEqual(deadlineDate);
         })
     })
@@ -268,7 +268,7 @@ describe('Tasker: deadlineDateCalculate', () => {
         })
 
         test('test sunday start later', () => {
-            startDate = new Date(2021, 11, 10, 19, 0);
+            startDate = new Date(2021, 11, 12, 19, 0);
 
             deadlineDate = new Date(2021, 11, 13, 11, 0)
             expect(tasker.deadlineDateCalculate(startDate, 0)).toEqual(deadlineDate);

@@ -4,6 +4,8 @@
   "description": "test => npm test start => npm start",
   "main": "index.js",
   "scripts": {
+    "start": "npm app.js",
+    "start:dev": "nodemon app.js",
     "test": "jest"
   },
   "author": " <kozak20012001@gmail.com>",

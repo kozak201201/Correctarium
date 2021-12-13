@@ -80,6 +80,8 @@ class TaskerService {
 
     deadlineDateCalculate(startDate, leadTime) {
         startDate = new Date(startDate);
+        startDate.setSeconds(0);
+
         let deadlineLeadTimeInMinutes = leadTime + DEADLINE_FACTOR_IN_MINUTES;
 
         if (deadlineLeadTimeInMinutes < MINUTES_IN_HOUR) {
@@ -117,8 +119,15 @@ class TaskerService {
                         this.#taskerHelper.changeDateToStartDay(startDate, 1, START_WORK_DAY);
                     }
 
+                    return this.#taskerHelper.deadlineDateTimeCalculateHelper(startDate,
+                        deadlineLeadTimeInMinutes,
+                        START_WORK_DAY,
+                        FINISH_WORK_DAY);
+                } else {
+                    let finishDate = new Date(startDate);
+                    finishDate.setMinutes(startDate.getMinutes() + deadlineLeadTimeInMinutes);
+                    return finishDate;
                 }
-
             }
             return this.#taskerHelper.deadlineDateTimeCalculateHelper(startDate,
                 deadlineLeadTimeInMinutes,
