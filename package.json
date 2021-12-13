@@ -1,0 +1,15 @@
+{
+  "name": "correctarium",
+  "version": "1.0.0",
+  "description": "test => npm test start => npm start",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": " <kozak20012001@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.4",
+    "nodemon": "^2.0.15"
+  }
+}
