@@ -4,7 +4,7 @@ const editorService = new EditorService();
 class EditorController {
     editText(req, res) {
         const {language, mimetype, count} = req.body;
-        const resultObj = editorService.useTaskToText(count, language, mimetype);
+        const resultObj = editorService.applyTaskToWords(count, language, mimetype);
         res.json(resultObj);
     }
 }

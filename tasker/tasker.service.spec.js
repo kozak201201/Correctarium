@@ -324,31 +324,31 @@ describe('Tasker: useTaskToText', () => {
     let startDate = new Date(2021, 11, 13, 10, 0);
     test('should return correct result object', () => {
         resultObj = {price: 50, time: 1, deadline: 1639387800000, deadline_date: '13/12/2021 11:30:00'};
-        expect(tasker.useTaskToText(1000, 'uk', 'docx', startDate)).toEqual(resultObj);
-        expect(tasker.useTaskToText(1000, 'ru', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(1000, 'uk', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(1000, 'ru', 'docx', startDate)).toEqual(resultObj);
 
         resultObj = {price: 120, time: 3.01, deadline: 1639395060000, deadline_date: '13/12/2021 13:31:00'};
-        expect(tasker.useTaskToText(1000, 'en', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(1000, 'en', 'docx', startDate)).toEqual(resultObj);
 
         resultObj = {price: 1171.55, time: 17.35, deadline: 1639555500000, deadline_date: '15/12/2021 10:05:00'};
-        expect(tasker.useTaskToText(23431, 'uk', 'docx', startDate)).toEqual(resultObj);
-        expect(tasker.useTaskToText(23431, 'ru', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(23431, 'uk', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(23431, 'ru', 'docx', startDate)).toEqual(resultObj);
 
         resultObj = {price: 2811.72, time: 70.22, deadline: 1640188320000, deadline_date: '22/12/2021 17:52:00'};
-        expect(tasker.useTaskToText(23431, 'en', 'docx', startDate)).toEqual(resultObj);
+        expect(tasker.applyTaskToWords(23431, 'en', 'docx', startDate)).toEqual(resultObj);
     })
     test('should throw language error', () => {
         resultObj = {price: 50, time: 1, deadline: 1639387800000, deadline_date: '13/12/2021 11:30:00'};
-        expect(() => tasker.useTaskToText(1000, null ,'docx', startDate)).toThrow(`This language doesn't support`)
-        expect(() => tasker.useTaskToText(1000, '' ,'docx', startDate)).toThrow(`This language doesn't support`)
-        expect(() => tasker.useTaskToText(1000, undefined ,'docx', startDate)).toThrow(`This language doesn't support`)
+        expect(() => tasker.applyTaskToWords(1000, null ,'docx', startDate)).toThrow(`This language doesn't support`)
+        expect(() => tasker.applyTaskToWords(1000, '' ,'docx', startDate)).toThrow(`This language doesn't support`)
+        expect(() => tasker.applyTaskToWords(1000, undefined ,'docx', startDate)).toThrow(`This language doesn't support`)
 
     })
     test('should throw mime type error', () => {
         resultObj = {price: 50, time: 1, deadline: 1639387800000, deadline_date: '13/12/2021 11:30:00'};
-        expect(() => tasker.useTaskToText(1000, 'uk' ,null, startDate)).toThrow(`File factor map does not have this type`)
-        expect(() => tasker.useTaskToText(1000, 'ru' ,'', startDate)).toThrow(`File factor map does not have this type`)
-        expect(() => tasker.useTaskToText(1000, 'en' ,undefined, startDate)).toThrow(`File factor map does not have this type`)
+        expect(() => tasker.applyTaskToWords(1000, 'uk' ,null, startDate)).toThrow(`File factor map does not have this type`)
+        expect(() => tasker.applyTaskToWords(1000, 'ru' ,'', startDate)).toThrow(`File factor map does not have this type`)
+        expect(() => tasker.applyTaskToWords(1000, 'en' ,undefined, startDate)).toThrow(`File factor map does not have this type`)
 
     })
 })

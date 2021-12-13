@@ -5,7 +5,7 @@ class TranslatorController {
     translateText(req, res) {
         const {from, to, mimetype, count} = req.body;
         const language = `${from}-${to}`;
-        const resultObj = translatorService.useTaskToText(count, language, mimetype);
+        const resultObj = translatorService.applyTaskToWords(count, language, mimetype);
         res.json(resultObj);
     }
 }

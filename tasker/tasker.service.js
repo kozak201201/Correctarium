@@ -25,7 +25,7 @@ class TaskerService {
         this.wordsPerHourMap = new Map();
     }
 
-    useTaskToText(countOfWords, language, mimeType, startDate=new Date()) {
+    applyTaskToWords(countOfWords, language, mimeType, startDate=new Date()) {
         const price = this.priceCalculate(countOfWords, language, mimeType);
         const timeInMinutes = this.leadTimeCalculate(countOfWords, language, mimeType);
         const deadlineDate = this.deadlineDateCalculate(startDate, timeInMinutes);
