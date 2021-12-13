@@ -1,2 +1,2 @@
-test => npm test
+test => npm run test
 start => npm start
