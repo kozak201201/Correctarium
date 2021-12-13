@@ -1,5 +1,5 @@
 const TaskerHelper = require('./tasker-helper');
-const DefaultFormater = require('../formater/defaultFormater');
+const DefaultFormatter = require('../formater/default-formater');
 
 const MINUTES_IN_HOUR = 60;
 const MINIMUM_DEADLINE_MINUTES = 60;
@@ -12,14 +12,14 @@ const SUNDAY_INDEX = 0;
 class TaskerService {
 
     #taskerHelper
-    #formater
+    #formatter
     #fileFactorMap
     #pricePerWordMap
     #wordsPerHourMap
 
     constructor() {
         this.#taskerHelper = new TaskerHelper();
-        this.#formater = new DefaultFormater();
+        this.#formatter = new DefaultFormatter();
         this.fileFactorMap = new Map();
         this.pricePerWordMap = new Map();
         this.wordsPerHourMap = new Map();
@@ -32,8 +32,8 @@ class TaskerService {
         const deadlineInUnix = deadlineDate.getTime();
 
 
-        const timeInHoursWithMinutes = this.formater.timeToHoursFormat(timeInMinutes)
-        const deadlineDateToFormat = this.formater.deadlineDateToFormat(deadlineDate);
+        const timeInHoursWithMinutes = this.formatter.timeToHoursFormat(timeInMinutes)
+        const deadlineDateToFormat = this.formatter.deadlineDateToFormat(deadlineDate);
 
         return {price, time: timeInHoursWithMinutes, deadline: deadlineInUnix, deadline_date: deadlineDateToFormat};
     }
@@ -174,16 +174,16 @@ class TaskerService {
         return this.#wordsPerHourMap;
     }
 
-    set formater(formater) {
-        if (formater == null) {
+    set formatter(formatter) {
+        if (formatter == null) {
             throw new Error(`you can't set null or undefined value`)
         }
 
-        this.#formater = formater
+        this.#formatter = formatter
     }
 
-    get formater() {
-        return this.#formater;
+    get formatter() {
+        return this.#formatter;
     }
 }
 
